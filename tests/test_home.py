@@ -9,17 +9,12 @@ from pages.search_result import ProductResultPage
 
 def test_LogoDisplayed(browser):
     home_page = HomePage(browser)
-
-    title = 'My Store'
-
-    assert title.lower() == home_page.title().lower()
+    assert home_page.verify_logo_displayed()
 
 
 def test_SearchReturnsValidResults(browser):
+    term = 't-shirts'
     home_page = HomePage(browser)
     results_page = ProductResultPage(browser)
-
-    term = 't-shirts'
-
     home_page.product_search(term)
     assert term in results_page.result_product_titles()[0].lower()
