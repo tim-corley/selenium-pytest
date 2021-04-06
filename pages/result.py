@@ -17,6 +17,8 @@ class DuckDuckGoResultPage:
     def result_link_titles(self):
         links = self.browser.find_elements(*self.RESULT_LINKS)
         titles = [link.text for link in links]
+        for t in titles:
+            print('\n--> {}'.format(t))
         return titles
 
     def search_value_input(self):
