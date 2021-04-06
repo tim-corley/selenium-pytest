@@ -3,13 +3,13 @@ This module contains shared fixtures
 """
 
 import pytest
-import selenium.webdriver
+from selenium import webdriver
 
 
 @pytest.fixture
 def browser():
     # initialize the ChromeBrowser instance
-    b = selenium.webdriver.Chrome()
+    b = webdriver.Chrome()
     # set calls to wait for up to 10 seconds for elements
     b.implicitly_wait(10)
     # return the WebDriver instance for the setup
