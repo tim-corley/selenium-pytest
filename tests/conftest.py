@@ -25,20 +25,21 @@ def config(scope='session'):
 @pytest.fixture()
 def browser(config):
     if config['browser'] == 'Firefox':
-        b = webdriver.Firefox()
+        wd = webdriver.Firefox()
     elif config['browser'] == 'Chrome':
-        b = webdriver.Chrome()
+        wd = webdriver.Chrome()
     elif config['browser'] == 'Headless Chrome':
         opts = webdriver.ChromeOptions()
         opts.add_argument('headless')
-        b = webdriver.Chrome(options=opts)
+        wd = webdriver.Chrome(options=opts)
     else:
-        raise Exception(f'Browser "{config["browser"]}" is not supported')
+        raise Exception(f'The "{config["browser"]}" browser is not supported')
     # set calls to wait for up to 10 seconds for elements
-    b.implicitly_wait(config['implicit_wait'])
+    wd.implicitly_wait(config['implicit_wait'])
     # resize browser window
-    b.maximize_window()
+    wd.maximize_window()
+    wd.get(config['target_url'])
     # return the WebDriver instance for the setup
-    yield b
+    yield wd
     # Quit the WebDriver instance for the cleanup
-    b.quit()
+    wd.quit()
