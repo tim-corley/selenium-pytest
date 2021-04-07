@@ -12,8 +12,8 @@ def test_LogoDisplayed(browser):
     assert home_page.verify_logo_displayed()
 
 
-def test_SearchReturnsValidResults(browser):
-    term = 't-shirts'
+@pytest.mark.parametrize('term', ['t-shirts', 'dress'])
+def test_SearchReturnsValidResults(browser, term):
     home_page = HomePage(browser)
     results_page = ProductResultPage(browser)
     home_page.product_search(term)

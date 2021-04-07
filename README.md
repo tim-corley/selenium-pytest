@@ -96,7 +96,7 @@ USERNAME=Your Name
 
  - **Run Tests in Parallel**
 
-``pipenv run python -m pytest -n 3``
+``pipenv run python -m pytest -n 2``
 
 
 
