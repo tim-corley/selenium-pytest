@@ -79,6 +79,9 @@ PASSWORD=yourpassword
 USERNAME=Your Name
 ```
 
+### Test Configuration
+
+Set the desired test configurations (brower and url) via the `config.json` file. Supported browsers are: "Headless Chrome", "Chrome", and "Firefox".
 
 ### Running Tests
 
