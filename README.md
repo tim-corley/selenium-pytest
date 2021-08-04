@@ -59,6 +59,16 @@ Follow the steps below to get a local development instance up & running.
 
  - Python3
  - pipenv
+ - #### Drivers
+   The drivers for each browser (Chrome & Firefox) need to be downloaded, converted to executables, and places in the `usr/local/bin` directory
+   
+    - [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+    - [GeckoDriver](https://github.com/mozilla/geckodriver/releases)
+
+    ```bash
+    chmod +x Downloads/geckodriver
+    sudo mv Downloads/geckodriver ../../usr/local/bin/
+    ```
 
 ### Installation
 
